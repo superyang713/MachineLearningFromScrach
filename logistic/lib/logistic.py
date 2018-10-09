@@ -20,7 +20,7 @@ Important notes:
 
 
 import numpy as np
-from utils import sigmoid, reshape_X, reshape_y, initialize_with_zeros
+from .utils import sigmoid, reshape_X, reshape_y, initialize_with_zeros
 
 
 class LogisticRegression:
