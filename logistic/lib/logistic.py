@@ -7,7 +7,7 @@ Important notes:
     2. y shape from the data source is (n_samples,)
     3. Internally, X is converted to (n_features, n_samples), and y is \
         converted to (1, n_samples)
-    4. y_predict shape is (1, n_samples)
+    4. y_predict shape is (n_samples,)
     5. w shape is (1, n_features)
     6. b is scalar.
     7. Therefore, internally,  z = wX + b
@@ -150,15 +150,13 @@ class LogisticRegression:
         A = sigmoid(np.dot(w, X) + b)
 
         y_predict = np.rint(A)
-        y_predict = reshape_y(y_predict)
-        assert(y_predict.shape == (1, n_samples))
+        y_predict = y_predict.reshape(n_samples)
+        assert(y_predict.shape == (n_samples,))
 
         return y_predict
 
     def get_accuracy(self, X, y):
-        X = reshape_X(X)
-        y = reshape_y(y)
         y_predict = self.predict(X)
-        n_samples = X.shape[1]
+        n_samples = X.shape[0]
         accuracy = np.sum(y_predict == y) / n_samples
         return accuracy

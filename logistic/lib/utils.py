@@ -76,8 +76,8 @@ def load_dataset():
 
     classes = np.array(test_dataset["list_classes"][:])
 
-    train_set_y_orig = train_set_y_orig.reshape((1, train_set_y_orig.shape[0]))
-    test_set_y_orig = test_set_y_orig.reshape((1, test_set_y_orig.shape[0]))
+    train_set_y_orig = train_set_y_orig.reshape(train_set_y_orig.shape[0])
+    test_set_y_orig = test_set_y_orig.reshape(test_set_y_orig.shape[0])
 
     return (train_set_x_orig,
             train_set_y_orig,
@@ -104,5 +104,5 @@ def describe_data(X_train_orig, y_train, X_test_orig, y_test):
     print("X_train_orig shape: {}".format(X_train_orig.shape))
     print("y_train shape: {}".format(y_train.shape))
     print("X_test_orig shape: {}".format(X_test_orig.shape))
-    print("y_test shape: {}".format(X_test_orig.shape))
+    print("y_test shape: {}".format(y_test.shape))
     print('-' * 50)
